@@ -1,9 +1,27 @@
 //
 //  WeatherCell.swift
-//  rainyShinnyCloudy
+//  rainyshinycloudy
 //
-//  Created by Jay Hall on 15/8/17.
-//  Copyright © 2017 Jay Hall. All rights reserved.
+//  Created by Caleb Stultz on 7/27/16.
+//  Copyright © 2016 Caleb Stultz. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class WeatherCell: UITableViewCell {
+    
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var weatherType: UILabel!
+    @IBOutlet weak var highTemp: UILabel!
+    @IBOutlet weak var lowTemp: UILabel!
+    
+    func configureCell(forcast: Forcast) {
+        lowTemp.text = "\(forcast.lowTemp)"
+        highTemp.text = "\(forcast.highTemp)"
+        weatherType.text = forcast.weatherType
+        weatherIcon.image = UIImage(named: forcast.weatherType)
+        dayLabel.text = forcast.date
+    }
+    
+}
